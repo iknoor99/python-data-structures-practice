@@ -1,0 +1,31 @@
+class node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+"""
+
+def checkBST(root):
+    
+    listcheck=[]
+    current=root
+    stacklist=[]
+    
+    while True:
+        
+        if current is not None:
+            stacklist.append(current)
+            current=current.left
+            
+        elif(stacklist):
+            current=stacklist.pop()
+            listcheck.append(current.data)
+            current=current.right
+            
+        else:
+            break
+            
+    if(sorted(set(listcheck))==listcheck):
+        return 'Yes'
+    else:
+        return 'No'
