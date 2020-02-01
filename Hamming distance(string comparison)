@@ -1,0 +1,42 @@
+'''
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
+Given two integers x and y, calculate the Hamming distance.
+
+Note:
+0 ≤ x, y < 231.
+
+Example:
+
+Input: x = 1, y = 4
+
+Output: 2
+
+Explanation:
+1   (0 0 0 1)
+4   (0 1 0 0)
+       ↑   ↑
+
+The above arrows point to positions where the corresponding bits are different.
+'''
+
+****************Code******************
+count=0
+xlist=bin(a)[2:]
+ylist=bin(b)[2:]
+        
+xlen=len(xlist)
+ylen=len(ylist)
+        
+if(xlen>ylen):
+    diff=xlen-ylen 
+    ylist=ylist.zfill(xlen)
+        
+elif(xlen<ylen):
+    diff=ylen-xlen
+    xlist=xlist.zfill(ylen)
+        
+for x, y in zip(xlist, ylist):
+    if x != y:
+        count=count+1 
+print(count)
